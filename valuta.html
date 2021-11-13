@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Valutaváltó</title>
+    <link rel="stylesheet" href="">
+    <style>
+        body{
+            background-color: rgba(98, 182, 182, 0.842);
+        }
+    </style>
+</head>
+
+<body>
+<div class="row-my-1">
+        <div class="col-sm-1"></div>    
+        <h2 class="h2"#>Valutaváltó</h2>
+</div>
+<form>
+    <div class="from-group row">
+        <div class="col-sm-2"></div>
+        <label for="osszeg" class="col-sm-2"><strong>Összeg:</strong></label>
+        <div class="col-sn-4">
+            <input type="text" class="form-control" id="osszeg">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-sm-2"></div>
+        <label for = "valuta" class="col sm 2"><strong>Valuta</strong></label>
+        <div class="col-sm-4">
+            <select id="valuta" class="custom-select mr-sm-2" id="">
+                <option selected>Válassz Valutát!</option>
+                <option value="euro">EURO</option>
+                <option value="dollar">DOLLÁR</option>
+                <option value="font">FONT</option>
+                <option value="jüan">JÜAN</option>
+                <option value="ars">ARS</option>
+                <option value="rub">Orosz Ruben</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="from-group row">
+        <div class="col-sm-2"></div>
+        <label class="col-sm-2 col-from-label">&nbsp;</label>
+        <div class="col-sm-4">
+            <input type="button" class="btn btn-primary btn-block" id="atvaltas" value="Átváltás" onclick="atvalt()">
+        </div>
+    </div>
+
+    <div class="form group row">
+        <div class="col-sn-2"></div>
+        <label for="ertek" class="col sn 2"><strong>Érték</strong></label>
+        <div class="col-sm-4">
+            <input type="text" class="form-control" id="ertek" readonly>
+        </div>
+    </div>
+
+
+
+
+</form>
+</body>
+
+<script>
+
+var eur=358;
+var doll=302;
+var font=397;
+var ars=3;
+var jüan=45;
+var rub=4.39;
+
+    function atvalt(){
+        var v=document.querySelector("#valuta").value;
+        var osszeg=document.querySelector("#osszeg").value;
+        var ert=0;
+        switch(v){
+            case "euro":ert=osszeg*eur;break;
+            case "dollar":ert=osszeg*doll;break;
+            case "font":ert=osszeg*font;break;
+            case "jüan":ert=osszeg*jüan;break;
+            case "ars":ert=osszeg*ars;break;
+            case "rub":ert=osszeg*rub;break;
+            default: ert="Nincs ilyen valuta!";break;
+        }
+        document.querySelector("#ertek").value=ert; 
+    }
+
+</script>
+
+</html>
